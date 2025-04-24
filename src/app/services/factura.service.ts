@@ -13,18 +13,29 @@ export class FacturaService {
     private http:HttpClient
   ) { }
 
-  subirImagenes(images: File[]): Observable<HttpResponse<any>> {
-    const formData = new FormData();
-    
-    // Mandar como "imagen1", "imagen2", ..., "imagen20"
-    images.forEach((img, index) => {
-      formData.append(`imagen${index + 1}`, img);  // <-- Cada imagen tiene una clave única
-    });
+ // Subir imágenes como MultipartFile[]
+ subirImagenes(images: File[]): Observable<ApiResponse> {
+  const formData = new FormData();
+
+  images.forEach((image: File) => {
+    formData.append('images', image); // el nombre 'images' debe coincidir con @RequestParam("images") del backend
+  });
+
+  console.log(images)
+
+  return this.http.post<ApiResponse>(`${environment.baseService}/factura/searchImage`, formData,);
+}
+
+
   
-    return this.http.post<any>(`${environment.baseService}/factura/searchImage`, formData, {
-      observe: 'response'
+  // Enviar datos completos de la factura al backend
+  enviarDatosFactura(userId: number, datos: any): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'userId': userId.toString()
     });
+
+    return this.http.post(`${environment.baseService}/factura`, datos, { headers });
   }
-  
   
 }

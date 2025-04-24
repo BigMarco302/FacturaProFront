@@ -17,6 +17,7 @@ export class NewFacturaComponent {
     (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
   }
 
+
   imagenesSeleccionadas: File[] = [];
   imagenesSeleccionadasPreview: string[] = [];
   tickets: any[] = []; // Aquí guardaremos los datos procesados de los tickets
