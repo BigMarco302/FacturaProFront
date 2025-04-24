@@ -14,6 +14,8 @@ import { EndopointCRUDComponent } from './endopoint-crud/endopoint-crud.componen
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LogsAdminComponent } from './logs-admin/logs-admin.component';
+import { CompanyCrudComponent } from './company-crud/company-crud.component';
+import { CompanyComponent } from './company/company.component';
 
 
 
@@ -28,7 +30,9 @@ import { LogsAdminComponent } from './logs-admin/logs-admin.component';
     RolesCRUDComponent,
     ModulesCRUDComponent,
     EndopointCRUDComponent,
-    LogsAdminComponent
+    LogsAdminComponent,
+    CompanyCrudComponent,
+    CompanyComponent
   ],
   imports: [
     FormsModule,

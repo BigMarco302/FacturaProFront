@@ -1,0 +1,163 @@
+body {
+    background-color: #f0f4fa;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+  }
+  
+  .header {
+    background-color: #ff9800;
+    padding: 1rem 2rem;
+    color: white;
+    position: relative;
+  
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+  
+    p {
+      margin: 0;
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+  
+    .menu-button {
+      position: absolute;
+      left: 1rem;
+      top: 1rem;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: white;
+    }
+  
+    .top-right {
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+  
+      .usuario {
+        font-weight: bold;
+      }
+    }
+  }
+  .container {
+    padding: 1rem;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #2b507c;
+    color: white;
+    padding: 1rem;
+  }
+  
+  .menu-icon {
+    font-size: 24px;
+  }
+  
+  .user {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 1rem 0 0;
+    color: #f3a621;
+  }
+  
+  .subtitle {
+    color: #444;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  .section-title {
+    color: #f3a621;
+    margin-bottom: 1rem;
+  }
+  
+  .datos-usuario {
+    margin-bottom: 1.5rem;
+  }
+  
+  .facturacion-form {
+    margin-bottom: 2rem;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  input {
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+  
+  .conceptos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .conceptos-table th,
+  .conceptos-table td {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .resumen {
+    margin-top: 2rem;
+    font-size: 14px;
+  }
+  
+  .total-pagar {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 1rem;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .guardar {
+    background-color: #ffeb3b;
+    color: white;
+  }
+  
+  .editar {
+    background-color: #e0e6ed;
+    color: #fff;
+  }
+  

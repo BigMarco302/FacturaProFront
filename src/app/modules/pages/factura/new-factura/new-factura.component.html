@@ -1,0 +1,85 @@
+<div class="container">
+  <!-- HEADER -->
+  <header class="header">
+    <h1>Empezemos a facturar</h1>
+    <p>Factura tu ticket de una forma sencilla y rápida</p>
+  </header>
+
+  <!-- SECCIÓN DE CARGA DE IMAGEN Y EJEMPLO -->
+  <section class="upload-section">
+    <div class="upload-box">
+      <label for="fotoTicket" class="upload-placeholder">
+        <span>📷</span>
+        <p>Sube una foto de tu ticket</p>
+      </label>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" multiple />
+    </div>
+     <!-- Previsualización (opcional) -->
+  <div class="preview" *ngIf="imagenesSeleccionadas.length > 0">
+    <p>Imágenes seleccionadas:</p>
+    <div class="preview-grid">
+      <img 
+        *ngFor="let img of imagenesSeleccionadasPreview" 
+        [src]="img"
+        alt="Previsualización"
+        class="miniatura"
+      />
+    </div>
+  </div>
+
+  <button (click)="enviarImagenes()">Subir imágenes</button>
+    <div class="example-box">
+      <img src="assets/ejemplo-ticket.png" alt="Ejemplo" />
+      <p>Ejemplo de como tomar la fotografía</p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DATOS -->
+  <section class="formulario">
+    <h2>Tus Datos</h2>
+    <form class="datos-grid">
+      <input placeholder="RFC" [(ngModel)]="datosFormulario.rfc" name="rfc"/>
+      <input placeholder="Correo electrónico" [(ngModel)]="datosFormulario.correo" name="correo"/>
+      <input placeholder="Nombre" [(ngModel)]="datosFormulario.nombre" name="nombre"/>
+      <input placeholder="Código postal" [(ngModel)]="datosFormulario.cp" name="cp"/>
+      <input placeholder="Municipio" [(ngModel)]="datosFormulario.municipio" name="municipio"/>
+      <input placeholder="Estado" [(ngModel)]="datosFormulario.estado" name="estado"/>
+      <input placeholder="Régimen fiscal" [(ngModel)]="datosFormulario.regimen" name="regimen"/>
+      <select [(ngModel)]="datosFormulario.uso" name="uso">
+        <option value="">Uso de CFDI</option>
+        <option value="G01">G01</option>
+        <option value="P01">P01</option>
+      </select>
+      <input placeholder="Colonia" [(ngModel)]="datosFormulario.colonia" name="colonia"/>
+      <input placeholder="Calle" [(ngModel)]="datosFormulario.calle" name="calle"/>
+      <input placeholder="No. Int." [(ngModel)]="datosFormulario.noInt" name="noInt"/>
+      <input placeholder="No. Ext." [(ngModel)]="datosFormulario.noExt" name="noExt"/>
+    </form>
+    
+  </section>
+
+  <!-- TICKETS -->
+  <section class="ticket-section">
+    <h2>Datos Recibidos de los tickets</h2>
+    <div class="ticket" *ngFor="let ticket of tickets">
+      <div class="ticket-info">
+        <p><strong>Tipo de servicio:</strong> {{ ticket.tipo }}</p>
+        <p><strong>{{ ticket.identificador }}</strong></p>
+        <p><strong>Fecha de factura:</strong> {{ ticket.fecha }}</p>
+        <p *ngIf="ticket.hora"><strong>Hora de consumo:</strong> {{ ticket.hora }}</p>
+      </div>
+      <div class="ticket-total">
+        <p><strong>Subtotal:</strong> {{ ticket.subtotal }} €</p>
+        <p><strong>IVA:</strong> {{ ticket.iva }} €</p>
+        <p><strong>Total:</strong> {{ ticket.total }} €</p>
+        <button>Ver más</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTONES -->
+  <div class="botones-finales">
+    <button class="guardar" (click)="guardarDatos()">Guardar</button>
+    <button class="previsualizar" (click)="generarPDF()">Previsualizar</button>
+  </div>
+</div>

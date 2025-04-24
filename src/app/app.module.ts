@@ -8,9 +8,7 @@ import { AppComponent } from './app.component';
 import { AuthModule } from './core/auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 import { RouterModule } from '@angular/router';
-import { LicenciasModule } from './modules/pages/licencias/licencias.module';
 import { NavComponent } from './shared/header/nav/nav.component';
-import { LicenciasRoutingModule } from './modules/pages/licencias/licencias-routing.module';
 import { HomeRoutingModule } from './modules/pages/home/home-routing.module';
 import { PerfilComponent } from './modules/pages/extras/perfil/perfil.component';
 import { ExtrasRoutingModule } from './modules/pages/extras/extras-routing.module';
@@ -20,8 +18,7 @@ import { TokenInterceptor } from './core/interceptor/token.interceptor';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './modules/pages/administration/admin-routing.module';
 import { AdministrationModule } from './modules/pages/administration/administration.module';
-import { NominabecaRoutingModule } from './modules/pages/nomina-becarios/nominabeca-routing.module';
-import { NominaBecariosModule } from './modules/pages/nomina-becarios/nomina-becarios.module';
+import { FacturaModule } from './modules/pages/factura/factura.module';
 
 @NgModule({
   declarations: [
@@ -34,15 +31,12 @@ import { NominaBecariosModule } from './modules/pages/nomina-becarios/nomina-bec
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    LicenciasModule,
     RouterModule,
+    FacturaModule,
     HttpClientModule,
-    LicenciasRoutingModule,
     HomeRoutingModule,
     ExtrasRoutingModule,
     LayoutModule,
-    NominabecaRoutingModule,
-    NominaBecariosModule,
     ReactiveFormsModule,
       AdminRoutingModule
   ],

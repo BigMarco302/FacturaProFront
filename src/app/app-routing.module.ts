@@ -2,7 +2,6 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './modules/layout/layout.component';
 import { LoginComponent } from './core/auth/login/login.component';
-import { IngresoLicenciasComponent } from './modules/pages/licencias/ingreso-licencias/ingreso-licencias.component';
 import { LoggedGuard } from './core/guards/logged.guard';
 import { UsersComponent } from './modules/pages/administration/users/users.component';
 import { HomeModule } from './modules/pages/home/home.module';
@@ -12,12 +11,14 @@ import { RolesCRUDComponent } from './modules/pages/administration/roles-crud/ro
 import { ModulesCRUDComponent } from './modules/pages/administration/modules-crud/modules-crud.component';
 import { EndopointCRUDComponent } from './modules/pages/administration/endopoint-crud/endopoint-crud.component';
 import { TestComponent } from './modules/pages/extras/test/test.component';
-import { NominaBecariosModule } from './modules/pages/nomina-becarios/nomina-becarios.module';
+import { NewFacturaComponent } from './modules/pages/factura/new-factura/new-factura.component';
+import { FacturaModule } from './modules/pages/factura/factura.module';
+import { HomeFacturaComponent } from './modules/pages/factura/home-factura/home-factura.component';
 
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},
-  { path: 'Test', component: TestComponent },
+  { path: 'Test', component: NewFacturaComponent },
   {path: 'login',
     component: LoginComponent,
   },
@@ -27,13 +28,6 @@ const routes: Routes = [
     canActivate: [LoggedGuard],
     children: [
 
-      {
-        path:'Licencias',
-        loadChildren:() =>
-          import('./modules/pages/licencias/licencias.module').then(
-            (m) => m.LicenciasModule
-          ),
-      },
       {
         path:'Extras',
         loadChildren:() =>
@@ -56,10 +50,10 @@ const routes: Routes = [
           ),
       },
       {
-        path:'NominaBecarios',
+        path:'Factura',
         loadChildren:() =>
-          import('./modules/pages/nomina-becarios/nomina-becarios.module').then(
-            (m) => m.NominaBecariosModule
+          import('./modules/pages/factura/factura.module').then(
+            (m) => m.FacturaModule
           ),
       }
     ],
